@@ -6,9 +6,21 @@
 
 const http = require("http")
 
+/**
+ * Post
+ *
+ * GET /posts
+ * GET /posts/:id
+ * POST /posts
+ */
 const server = http.createServer((req, res) => {
-  res.statusCode = 200
-  res.end("Hello!")
+  if (req.url === "/posts" && req.method === "GET") {
+  } else if (req.url && /^\/posts\/[a-zA-Z0-9-_]+$/.test(req.url)) {
+  } else if (req.url === "/posts" && req.method === "POST") {
+  } else {
+    res.statusCode = 404
+    res.end("Not found.")
+  }
 })
 
 const PORT = 4000
