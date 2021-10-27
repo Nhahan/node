@@ -46,7 +46,7 @@ const server = http.createServer((req, res) => {
     }))
 
     res.statusCode = 200
-    res.end(result)
+    res.end(JSON.stringify(result))
   } else if (postIdRegexResult) {
     // GET /posts:id
     const postId = postIdRegexResult[1]
