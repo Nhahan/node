@@ -1,9 +1,30 @@
 // @ts-check
 
 /**
+ * @typedef Post
+ * @property {string} id
+ * @property {string} title
+ * @property {string} content
+ */
+
+/** @type {Post[]} */
+const posts = [
+  {
+    id: "my_fist_post",
+    title: "My first post",
+    content: "Hello!",
+  },
+  {
+    id: "my_second_post",
+    title: "My second post",
+    content: "Bye",
+  },
+]
+
+/**
  * @typedef APIResponse
  * @property {number} statusCode
- * @property {*} body
+ * @property {string | Object} body
  */
 
 // 모듈
