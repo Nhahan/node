@@ -2,4 +2,6 @@
 
 GET {{endpoint}}/posts
 
-***
+###
+
+GET {{endpoint}}/posts/my_first_post

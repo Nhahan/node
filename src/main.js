@@ -40,17 +40,28 @@ const server = http.createServer((req, res) => {
     (req.url && POSTS_ID_REGEX.exec(req.url)) || undefined
 
   if (req.url === "/posts" && req.method === "GET") {
-    const result = posts.map((post) => ({
-      id: post.id,
-      title: post.title,
-    }))
+    const result = {
+      post: posts.map((post) => ({
+        id: post.id,
+        title: post.title,
+      })),
+      totalCount: posts.length,
+    }
 
     res.statusCode = 200
     res.end(JSON.stringify(result))
   } else if (postIdRegexResult) {
     // GET /posts:id
     const postId = postIdRegexResult[1]
-    console.log(postId)
+    const post = posts.find((_post) => _post.id === postId)
+
+    if (post) {
+      res.statusCode = 200
+      res.end(JSON.stringify(post))
+    } else {
+      res.statusCode = 404
+      res.end("Post not found.")
+    }
 
     res.statusCode = 200
     res.end("200")
