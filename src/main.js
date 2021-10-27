@@ -35,7 +35,7 @@ const posts = [
  * POST /posts
  */
 const server = http.createServer((req, res) => {
-  const POSTS_ID_REGEX = /^\/posts\/([a-zA-Z0-9-_]+)$ / // capture group ()
+  const POSTS_ID_REGEX = /^\/posts\/([a-zA-Z0-9-_]+)$/ // capture group ()
   const postIdRegexResult =
     (req.url && POSTS_ID_REGEX.exec(req.url)) || undefined
 

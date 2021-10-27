@@ -9,7 +9,7 @@
 // 모듈
 /**
  * @typedef Route
- * @property {string} url
+ * @property {RegExp} url
  * @property {"GET" | "POST"} method
  * @property {(values: Object) => Promise<APIResponse>} callback
  */
@@ -17,7 +17,7 @@
 // 모듈을 내보내는 것이 route
 const routes = [
   {
-    url: "/posts",
+    url: /^\/posts$/,
     method: "GET",
     callback: async () => ({
       // TODO: implement
@@ -27,7 +27,7 @@ const routes = [
   },
 
   {
-    url: "/posts/:id", // TODO: RegExp로 고쳐야함
+    url: "/^/posts/([a-zA-Z0-9-_]+)$/",
     method: "GET",
     callback: async () => ({
       // TODO: implement
@@ -37,7 +37,7 @@ const routes = [
   },
 
   {
-    url: "posts",
+    url: /^\/posts$/,
     method: "POST",
     callback: async () => ({
       // TODO: implement
