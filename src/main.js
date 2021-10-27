@@ -40,8 +40,13 @@ const server = http.createServer((req, res) => {
     (req.url && POSTS_ID_REGEX.exec(req.url)) || undefined
 
   if (req.url === "/posts" && req.method === "GET") {
+    const result = posts.map((post) => ({
+      id: post.id,
+      title: post.title,
+    }))
+
     res.statusCode = 200
-    res.end("200")
+    res.end(result)
   } else if (postIdRegexResult) {
     // GET /posts:id
     const postId = postIdRegexResult[1]
