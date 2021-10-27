@@ -4,4 +4,15 @@ GET {{endpoint}}/posts
 
 ###
 
-GET {{endpoint}}/posts/my_first_post
+GET {{endpoint}}/posts/foo
+
+
+###
+
+POST {{endpoint}}/posts
+Content-Type: application/json
+
+{
+    "title": "foo",
+    "content": "bar"
+}
