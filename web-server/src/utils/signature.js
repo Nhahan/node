@@ -60,7 +60,7 @@ TimestampSchema.find((error, result) => {
     if (error) {
         newTimestamp.save();
     } else if (timestamp - result[0].timestamp >= 300) {
-        TimestampSchema.findById(result[0]._id, (error, data) => {
+        TimestampSchema.findById(result[0]._id, (_, data) => {
             data.timestamp = timestamp;
             data.sign = sign;
             data.url = url;
