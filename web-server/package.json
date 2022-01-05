@@ -9,7 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^4.17.2",
-    "hbs": "^4.2.0"
+    "hbs": "^4.2.0",
+    "http": "^0.0.1-security",
+    "localStorage": "^1.0.4",
+    "mongoose": "^6.1.5",
+    "shopee-api": "^1.0.3",
+    "store": "^2.0.12"
   }
 }
