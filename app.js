@@ -44,6 +44,7 @@ app.get("/about", (req, res) => {
     res.render("about", params);
 });
 app.post("/test", (req, res) => {
+    console.log("/test called");
     console.log(req);
 
     console.log(res);
