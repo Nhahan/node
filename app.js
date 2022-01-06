@@ -40,6 +40,12 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
     res.render("about", params);
 });
+app.get("/about", (req, res) => {
+    res.render("about", params);
+});
+app.post("/test", (req, res) => {
+    res.send("asd");
+});
 
 // app.use(routers);
 
