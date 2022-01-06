@@ -44,8 +44,12 @@ app.get("/about", (req, res) => {
     res.render("about", params);
 });
 app.post("/test", (req, res) => {
-    res.send("asd");
+    res.send("");
 });
+app.post("/api/v2/push/set_push_config?"),
+    (req, res) => {
+        res.send("");
+    };
 
 // app.use(routers);
 
