@@ -47,6 +47,8 @@ app.post("/test", (req, res) => {
     console.log(req);
 
     console.log(res);
+
+    res.render("index", req, res);
 });
 app.post("/api/v2/push/set_push_config?"),
     (req, res) => {
