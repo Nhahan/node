@@ -21,14 +21,14 @@ const redirect = "https://naver.com";
 const code = "https://seller.test-stable.shopee.co.id";
 
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
-
-saveInfo();
+console.log(url);
+// saveInfo();
 
 module.exports = { host, partner_id, redirect, timestamp, sign, url, code };
 
 function saveInfo() {
     mongoose
-        .connect("mongodb://54.180.125.115:27017/admin", {
+        .connect("mongodb://54.180.152.185:27017/admin", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             ignoreUndefined: true,

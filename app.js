@@ -13,7 +13,7 @@ const optionHttps = {
     key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
     cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
 };
-http.createServer(app).listen(3005);
+http.createServer(app).listen(3000);
 https.createServer(optionHttps, app).listen(443);
 
 app.set("view engine", "hbs");
