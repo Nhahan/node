@@ -13,6 +13,7 @@ const partner_key =
     "170ddadd5bd5ae843c7ce110a883066061a12f2fa5384091edcd16d202c4a02b";
 
 let timestamp = Math.round(Date.now() / 1000);
+console.log(timestamp);
 
 const baseString = `${partner_id}${path}${timestamp}`;
 let sign = createHmac("sha256", partner_key).update(baseString).digest("hex"); // = calauth
@@ -21,14 +22,14 @@ const redirect = "https://naver.com";
 const code = "https://seller.test-stable.shopee.co.id";
 
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
-console.log(url);
-// saveInfo();
+// console.log(url);
+saveInfo();
 
 module.exports = { host, partner_id, redirect, timestamp, sign, url, code };
 
 function saveInfo() {
     mongoose
-        .connect("mongodb://54.180.152.185:27017/admin", {
+        .connect("mongodb://54.180.118.208:27017/admin", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             ignoreUndefined: true,
@@ -56,6 +57,9 @@ function saveInfo() {
     });
 
     TimestampSchema.find((error, result) => {
+        if (result[0].timestamp) {
+            newTimestamp.save();
+        }
         timestamp - result[0].timestamp > 0 &&
             console.log(
                 "Current authorization url expires after:",
@@ -63,7 +67,7 @@ function saveInfo() {
                 "s",
             );
         if (error) {
-            newTimestamp.save();
+            console.log(error);
         } else if (timestamp - result[0].timestamp >= 300) {
             TimestampSchema.findById(result[0]._id, (_, data) => {
                 data.timestamp = timestamp;
