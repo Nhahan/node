@@ -9,9 +9,9 @@ const fs = require("fs");
 const http = require("http");
 const https = require("https");
 const optionHttps = {
-    ca: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/fullchain.pem"),
-    key: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/privkey.pem"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/cert.pem"),
+    ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
+    key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
+    cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
 };
 http.createServer(app).listen(3005);
 https.createServer(optionHttps, app).listen(443);
