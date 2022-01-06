@@ -5,6 +5,16 @@ const axios = require("axios").default;
 const cors = require("cors");
 const app = express();
 const signature = require("./utils/signature");
+const fs = require("fs");
+const http = require("http");
+const https = require("https");
+const options = {
+    ca: fs.readFileSync("/etc/letsencrypt/live/내 도메인 네임/fullchain.pem"),
+    key: fs.readFileSync("/etc/letsencrypt/live/내 도메인 네임/privkey.pem"),
+    cert: fs.readFileSync("/etc/letsencrypt/live/내 도메인 네임/cert.pem"),
+};
+http.createServer(app).listen(3000);
+https.createServer(options, app).listen(443);
 
 app.set("view engine", "hbs");
 
