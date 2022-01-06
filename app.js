@@ -9,12 +9,12 @@ const fs = require("fs");
 const http = require("http");
 const https = require("https");
 http.createServer(app).listen(3000);
-const optionHttps = {
-    ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
-    key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
-};
-https.createServer(optionHttps, app).listen(443);
+// const optionHttps = {
+//     ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
+//     key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
+//     cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
+// };
+// https.createServer(optionHttps, app).listen(443);
 
 app.set("view engine", "hbs");
 
@@ -50,6 +50,8 @@ app.post("/test", (req, res) => {
 
     console.log("res:", res.body);
     console.log("req:", req.body);
+    renderedReq = req;
+    renderedRes = res;
 
     res.render("index", { renderedReq, renderedRes });
 });

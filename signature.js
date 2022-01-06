@@ -13,7 +13,6 @@ const partner_key =
     "170ddadd5bd5ae843c7ce110a883066061a12f2fa5384091edcd16d202c4a02b";
 
 let timestamp = Math.round(Date.now() / 1000);
-console.log(timestamp);
 
 const baseString = `${partner_id}${path}${timestamp}`;
 const redirect = "https://suml.xyz";
