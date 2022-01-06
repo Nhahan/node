@@ -16,8 +16,8 @@ let timestamp = Math.round(Date.now() / 1000);
 console.log(timestamp);
 
 const baseString = `${partner_id}${path}${timestamp}`;
+const redirect = "https://suml.xyz";
 let sign = createHmac("sha256", partner_key).update(baseString).digest("hex"); // = calauth
-const redirect = "https://naver.com";
 
 const code = "https://seller.test-stable.shopee.co.id";
 

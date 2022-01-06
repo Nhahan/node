@@ -8,13 +8,13 @@ const signature = require("./signature");
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
-const optionHttps = {
-    ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
-    key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
-};
+// const optionHttps = {
+//     ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
+//     key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
+//     cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
+// };
 http.createServer(app).listen(3000);
-https.createServer(optionHttps, app).listen(443);
+// https.createServer(optionHttps, app).listen(443);
 
 app.set("view engine", "hbs");
 
@@ -44,7 +44,9 @@ app.get("/about", (req, res) => {
     res.render("about", params);
 });
 app.post("/test", (req, res) => {
-    res.send("");
+    console.log(req);
+
+    console.log(res);
 });
 app.post("/api/v2/push/set_push_config?"),
     (req, res) => {
@@ -64,12 +66,12 @@ const options = {
 // axios
 //     .request(options)
 //     .then((response) => {
-//         console.log(response);
+//         console.log("response", response);
 //     })
 //     .catch((error) => {
-//         console.error(error);
+//         console.error("error", error);
 //     });
 
-// http.createServer(app).listen(3005);
+http.createServer(app).listen(3005);
 
 module.exports = app;
