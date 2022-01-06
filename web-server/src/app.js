@@ -9,7 +9,7 @@ const signature = require("./utils/signature");
 app.set("view engine", "hbs");
 
 app.use(cors({ origin: true, credentials: true }));
-
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -22,7 +22,7 @@ const params = {
     timestamp: signature.timestamp,
 };
 
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
     res.render("index", params);
 });
 app.get("/about", (req, res) => {
@@ -49,7 +49,7 @@ const options = {
 //     });
 
 app.listen(3005, () => {
-    console.log(`Example app listening at http://localhost:${3005}`);
+    console.log(`Test App listening at http://54.180.125.115/:3005`);
 });
 // http.createServer(app).listen(3005);
 
