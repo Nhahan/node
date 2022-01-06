@@ -1,4 +1,5 @@
 const { createHmac } = require("crypto");
+const mongoose = require("mongoose");
 
 // const host = "https://partner.shopeemobile.com";
 const host = "https://partner.test-stable.shopeemobile.com";
@@ -21,4 +22,62 @@ const code = "https://seller.test-stable.shopee.co.id";
 
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
 
+saveInfo();
+
 module.exports = { host, partner_id, redirect, timestamp, sign, url, code };
+
+function saveInfo() {
+    mongoose
+        .connect("mongodb://54.180.125.115:27017/admin", {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            ignoreUndefined: true,
+            user: "test",
+            pass: "test",
+        })
+        .catch((err) => console.log(err));
+
+    mongoose.connection.on("error", (err) => {
+        console.error("connect failed", err);
+    });
+
+    const timestampSchema = mongoose.Schema({
+        timestamp: "number",
+        sign: "string",
+        url: "string",
+    });
+
+    const TimestampSchema = mongoose.model("Schema", timestampSchema);
+
+    const newTimestamp = new TimestampSchema({
+        timestamp: timestamp,
+        sign: sign,
+        url: url,
+    });
+
+    TimestampSchema.find((error, result) => {
+        timestamp - result[0].timestamp > 0 &&
+            console.log(
+                "Current authorization url expires after:",
+                300 - (timestamp - result[0].timestamp),
+                "s",
+            );
+        if (error) {
+            newTimestamp.save();
+        } else if (timestamp - result[0].timestamp >= 300) {
+            TimestampSchema.findById(result[0]._id, (_, data) => {
+                data.timestamp = timestamp;
+                data.sign = sign;
+                data.url = url;
+                data.save();
+            });
+            console.log("Saved!");
+        } else {
+            timestamp = result[0].timestamp;
+            sign = result[0].sign;
+            url = result[0].url;
+        }
+
+        console.log("timestamp:", timestamp, "\nsign:", sign, "\nurl:", url);
+    });
+}
