@@ -22,7 +22,7 @@ const redirect = "https://naver.com";
 const code = "https://seller.test-stable.shopee.co.id";
 
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
-// console.log(url);
+
 saveInfo();
 
 module.exports = { host, partner_id, redirect, timestamp, sign, url, code };
@@ -57,9 +57,6 @@ function saveInfo() {
     });
 
     TimestampSchema.find((error, result) => {
-        if (result[0].timestamp) {
-            newTimestamp.save();
-        }
         timestamp - result[0].timestamp > 0 &&
             console.log(
                 "Current authorization url expires after:",
