@@ -5,6 +5,7 @@ const axios = require("axios").default;
 const cors = require("cors");
 const app = express();
 const signature = require("./utils/signature");
+
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
@@ -13,7 +14,7 @@ const optionHttps = {
     key: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/privkey.pem"),
     cert: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/cert.pem"),
 };
-http.createServer(app).listen(3000);
+http.createServer(app).listen(3005);
 https.createServer(optionHttps, app).listen(443);
 
 app.set("view engine", "hbs");
@@ -58,9 +59,9 @@ const options = {
 //         console.error(error);
 //     });
 
-app.listen(3005, () => {
-    console.log(`Test App listening at http://54.180.125.115/:3005`);
-});
+// app.listen(3005, () => {
+//     console.log(`Test App listening at http://54.180.125.115/:3005`);
+// });
 // http.createServer(app).listen(3005);
 
 module.exports = app;
