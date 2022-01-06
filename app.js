@@ -23,7 +23,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// const authorization = "69829c2321fa4fea1deea8d55b718e1d7804b356db49016b2163345275177eae";
+// 69829c2321fa4fea1deea8d55b718e1d7804b356db49016b2163345275177eae
 
 const params = {
     shop_id: "748211e597685173da3e",
@@ -60,9 +60,6 @@ const options = {
 //         console.error(error);
 //     });
 
-// app.listen(3005, () => {
-//     console.log(`Test App listening at http://54.180.125.115/:3005`);
-// });
 // http.createServer(app).listen(3005);
 
 module.exports = app;
