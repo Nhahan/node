@@ -47,11 +47,11 @@ app.get("/about", (req, res) => {
 });
 app.post("/test", (req, res) => {
     console.log("/test called");
-    console.log(req);
 
-    console.log(res);
+    console.log("res:", res.body);
+    console.log("req:", req.body);
 
-    res.render("index", req, res);
+    res.render("index", { renderedReq, renderedRes });
 });
 // app.use(routers);
 
