@@ -1,7 +1,6 @@
 const express = require("express");
 // const routers = require("../routers");
 const axios = require("axios").default;
-// const http = require("http");
 const cors = require("cors");
 const app = express();
 const signature = require("./signature");
