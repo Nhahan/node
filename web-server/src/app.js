@@ -8,13 +8,13 @@ const signature = require("./utils/signature");
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
-const options = {
-    ca: fs.readFileSync("/etc/letsencrypt/live/내 도메인 네임/fullchain.pem"),
-    key: fs.readFileSync("/etc/letsencrypt/live/내 도메인 네임/privkey.pem"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/내 도메인 네임/cert.pem"),
+const optionHttps = {
+    ca: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/fullchain.pem"),
+    key: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/privkey.pem"),
+    cert: fs.readFileSync("/etc/letsencrypt/live/nahan.shop/cert.pem"),
 };
 http.createServer(app).listen(3000);
-https.createServer(options, app).listen(443);
+https.createServer(optionHttps, app).listen(443);
 
 app.set("view engine", "hbs");
 
