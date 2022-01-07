@@ -21,9 +21,9 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// const timestamp = Math.round(Date.now() / 1000);
-const timestamp = 1641526716;
-const code = "524970564246676158625350764f6547";
+const timestamp = Math.round(Date.now() / 1000);
+// const timestamp = 1641527426;
+const code = "7061696a61554265496454686a615a43";
 const partner_id = 1005366;
 const partner_key =
     "170ddadd5bd5ae843c7ce110a883066061a12f2fa5384091edcd16d202c4a02b";
@@ -31,17 +31,22 @@ const baseString = `${partner_id}${path}${timestamp}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
 
 const params = {
-    code,
     partner_id,
     sign,
     timestamp,
-    shop_id: 37872,
+};
+
+const data = {
+    code,
+    partner_id,
+    shop_id: 37698,
 };
 
 const options = {
     method: "POST",
     url: `${host}${path}`,
     params,
+    data,
 };
 
 axios
