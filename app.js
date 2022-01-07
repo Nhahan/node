@@ -62,6 +62,7 @@ app.post("/test", (req, res) => {
     console.log("res:", res.body);
     console.log("req:", req.body);
     console.log("header", req.headers.authorization);
+    res.send("");
 });
 
 module.exports = app;
