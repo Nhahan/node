@@ -23,12 +23,11 @@ const code = "6a626a4a4b494164494247617344724a";
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
 
 saveInfo();
-
 module.exports = { host, partner_id, redirect, timestamp, sign, url, code };
 
 function saveInfo() {
     mongoose
-        .connect("mongodb://54.180.118.208:27017/admin", {
+        .connect("mongodb://13.125.249.43:27017/admin", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             ignoreUndefined: true,
@@ -78,6 +77,6 @@ function saveInfo() {
             url = result[0].url;
         }
 
-        // console.log("timestamp:", timestamp, "\nsign:", sign, "\nurl:", url);
+        console.log("timestamp:", timestamp, "\nsign:", sign, "\nurl:", url);
     });
 }

@@ -8,6 +8,8 @@ shop_id = 37872
 partner_id = 1005366
 partner_key = "170ddadd5bd5ae843c7ce110a883066061a12f2fa5384091edcd16d202c4a02b"
 
+path = "/api/v2/auth/token/get";
+
 def get_access_token_shop_level(shop_id, partner_id, partner_key, refresh_token):
     timest = int(time.time())
     host = "https://partner.shopeemobile.com"

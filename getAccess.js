@@ -21,8 +21,9 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const timestamp = Math.round(Date.now() / 1000);
-const code = "6a626a4a4b494164494247617344724a";
+// const timestamp = Math.round(Date.now() / 1000);
+const timestamp = 1641526716;
+const code = "524970564246676158625350764f6547";
 const partner_id = 1005366;
 const partner_key =
     "170ddadd5bd5ae843c7ce110a883066061a12f2fa5384091edcd16d202c4a02b";
