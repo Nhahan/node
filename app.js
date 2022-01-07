@@ -43,14 +43,14 @@ app.use(express.json());
 //     data,
 // };
 
-axios
-    .request(options)
-    .then((response) => {
-        console.log("response", response);
-    })
-    .catch((error) => {
-        // console.error("error", error.response.request);
-    });
+// axios
+//     .request(options)
+//     .then((response) => {
+//         console.log("response", response);
+//     })
+//     .catch((error) => {
+//         // console.error("error", error.response.request);
+//     });
 
 app.get("/", (req, res) => {
     res.render("index", params);
