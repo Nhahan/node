@@ -18,8 +18,8 @@ const redirect = "https://suml.xyz";
 let sign = createHmac("sha256", partner_key).update(baseString).digest("hex"); // = calauth
 
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
-
-saveInfo();
+console.log(url);
+// saveInfo();
 module.exports = { host, partner_id, redirect, timestamp, sign, url, code };
 
 function saveInfo() {
