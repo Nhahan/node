@@ -15,10 +15,10 @@ const partner_key =
 let timestamp = Math.round(Date.now() / 1000);
 
 const baseString = `${partner_id}${path}${timestamp}`;
-const redirect = "https://suml.xyz";
+const redirect = "https://suml.xyz?code=123123";
 let sign = createHmac("sha256", partner_key).update(baseString).digest("hex"); // = calauth
 
-const code = "https://seller.test-stable.shopee.co.id";
+const code = "6a626a4a4b494164494247617344724a";
 
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
 
@@ -78,6 +78,6 @@ function saveInfo() {
             url = result[0].url;
         }
 
-        console.log("timestamp:", timestamp, "\nsign:", sign, "\nurl:", url);
+        // console.log("timestamp:", timestamp, "\nsign:", sign, "\nurl:", url);
     });
 }
