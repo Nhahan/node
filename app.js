@@ -7,12 +7,12 @@ const fs = require("fs");
 const http = require("http");
 const https = require("https");
 http.createServer(app).listen(3000);
-const optionHttps = {
-    ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
-    key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
-};
-https.createServer(optionHttps, app).listen(443);
+// const optionHttps = {
+//     ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
+//     key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
+//     cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
+// };
+// https.createServer(optionHttps, app).listen(443);
 
 app.set("view engine", "hbs");
 
@@ -28,6 +28,7 @@ const params = {
     timestamp: signature.timestamp,
     shop_id: 37872,
 };
+
 app.get("/", (req, res) => {
     res.render("index", params);
 });
@@ -39,7 +40,5 @@ app.post("/test", (req, res) => {
     console.log("req:", req.body);
     console.log("header", req.headers.authorization);
 });
-
-console.log("?");
 
 module.exports = app;

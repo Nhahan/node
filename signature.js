@@ -20,7 +20,7 @@ let sign = createHmac("sha256", partner_key).update(baseString).digest("hex"); /
 let url = `${host}${path}?partner_id=${partner_id}&redirect=${redirect}&timestamp=${timestamp}&sign=${sign}`;
 console.log(url);
 // saveInfo();
-module.exports = { host, partner_id, redirect, timestamp, sign, url, code };
+module.exports = { host, partner_id, redirect, timestamp, sign, url };
 
 function saveInfo() {
     mongoose
