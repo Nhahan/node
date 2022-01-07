@@ -23,10 +23,10 @@ app.use(express.json());
 
 const timestamp = Math.round(Date.now() / 1000);
 // const timestamp = 1641527426;
-const code = "7061696a61554265496454686a615a43";
-const partner_id = 1005366;
+const code = "7658415974664b525774596c624f4748";
+const partner_id = 1000639;
 const partner_key =
-    "170ddadd5bd5ae843c7ce110a883066061a12f2fa5384091edcd16d202c4a02b";
+    "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";
 const baseString = `${partner_id}${path}${timestamp}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
 

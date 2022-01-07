@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const axios = require("axios");
 const app = express();
 const signature = require("./signature");
 
@@ -21,13 +22,35 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const params = {
-    code: signature.code,
-    partner_id: signature.partner_id,
-    sign: signature.sign,
-    timestamp: signature.timestamp,
-    shop_id: 37872,
-};
+// const params = {
+//     partner_id: signature.partner_id,
+//     sign: signature.sign,
+//     timestamp: signature.timestamp,
+// };
+
+// const data = {
+//     code: signature.code,
+//     partner_id: signature.partner_id,
+//     shop_id: 37698,
+// };
+
+// const path = "/api/v2/auth/token/get";
+
+// const options = {
+//     method: "POST",
+//     url: `${signature.host}${path}`,
+//     params,
+//     data,
+// };
+
+axios
+    .request(options)
+    .then((response) => {
+        console.log("response", response);
+    })
+    .catch((error) => {
+        // console.error("error", error.response.request);
+    });
 
 app.get("/", (req, res) => {
     res.render("index", params);

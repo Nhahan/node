@@ -3,13 +3,10 @@ const mongoose = require("mongoose");
 
 // const host = "https://partner.shopeemobile.com";
 const host = "https://partner.test-stable.shopeemobile.com";
-const appID = 205626;
-const partner_id = 1005366;
-
+const partner_id = 1000639;
 const path = "/api/v2/shop/auth_partner";
-
 const partner_key =
-    "170ddadd5bd5ae843c7ce110a883066061a12f2fa5384091edcd16d202c4a02b";
+    "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";
 
 let timestamp = Math.round(Date.now() / 1000);
 
