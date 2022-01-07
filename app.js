@@ -22,11 +22,11 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// const params = {
-//     partner_id: signature.partner_id,
-//     sign: signature.sign,
-//     timestamp: signature.timestamp,
-// };
+const params = {
+    partner_id: signature.partner_id,
+    sign: signature.sign,
+    timestamp: signature.timestamp,
+};
 
 // const data = {
 //     code: signature.code,
