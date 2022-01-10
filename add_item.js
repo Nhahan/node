@@ -9,7 +9,7 @@ const timestamp = Math.round(Date.now() / 1000);
 const partner_id = 1000639;
 const partner_key =
     "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";
-const access_token = "fe346eff06b14803454d8d253918de71";
+const access_token = "4c6467554c6d796f7a4e69466f766a6f";
 const shop_id = 37698;
 const baseString = `${partner_id}${path}${timestamp}${access_token}${shop_id}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
@@ -23,37 +23,37 @@ const params = {
 };
 
 const data = {
-    original_price: "555.5",
+    original_price: 555.5, // float
     description: "This item is good!",
-    // weight,
+    weight: 1, // float
     item_name: "Good Item",
     // item_status, // UNLIST, NORMAL
     // dimension, // { "package_height": 11, "package_length": 11, "package_width": 11 }
-    normal_stock: "33",
+    normal_stock: 33,
     logistic_info: [
         {
             size_id: 0,
             shipping_fee: 23.12,
             enabled: true,
-            logistic_id: 80101,
+            logistic_id: 111,
             is_free: false,
         },
     ],
-    // attribute_list: [
-    //     {
-    //         attribute_id: 4990,
-    //         attribute_value_list: [
-    //             {
-    //                 value_id: 32142,
-    //                 original_value_name: "Brand",
-    //                 value_unit: " kg",
-    //             },
-    //         ],
-    //     },
-    // ],
+    attribute_list: [
+        {
+            attribute_id: 100010,
+            attribute_value_list: [
+                {
+                    value_id: 32142,
+                    original_value_name: "Brand",
+                    // value_unit: "5kg",
+                },
+            ],
+        },
+    ],
     category_id: 100143,
     image: {
-        image_id_list: [],
+        image_id_list: ["asd.com"],
     },
     // pre_order: {
     //     "is_pre_order": false,
@@ -69,10 +69,10 @@ const data = {
     //     },
     // ],
     // video_upload_id,
-    // brand: {
-    //     brand_id: 0,
-    //     original_brand_name: "nike",
-    // },
+    brand: {
+        brand_id: 0,
+        original_brand_name: "nobrand",
+    },
     // item_dangerous: 0,
     // tax_info: {
     //     invoice_option: "",
