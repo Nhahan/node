@@ -35,7 +35,7 @@ const data = {
             size_id: 0,
             shipping_fee: 23.12,
             enabled: true,
-            logistic_id: 111,
+            logistic_id: "J&T",
             is_free: false,
         },
     ],
