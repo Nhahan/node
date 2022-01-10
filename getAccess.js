@@ -18,24 +18,27 @@ const params = {
     sign,
     timestamp,
 };
+
 const data = {
     code,
     partner_id,
     shop_id,
 };
+
 const options = {
     method: "POST",
     url: `${host}${path}`,
     params,
     data,
 };
+
 axios
     .request(options)
     .then((response) => {
         console.log("response", response.data);
     })
     .catch((error) => {
-        console.error("generate error", error.response.data);
+        console.error("error", error.response.data);
     });
 
 // response {
