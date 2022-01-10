@@ -11,7 +11,7 @@ const partner_key =
 const baseString = `${partner_id}${path}${timestamp}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
 const shop_id = 37698;
-const access_token = "7351725a77515177566c4a635a626c4c";
+const access_token = "230d605ce3296648568fe64464e0c320";
 
 const params = {
     partner_id,
@@ -24,9 +24,9 @@ const data = {
     time_range_field: "create_time",
     time_from: 1641786546,
     time_to: 1641786546,
-    page_size: 20,
-    order_state: "UNPAID",
-    response_optional_fields: "order_status",
+    // page_size: 20,
+    // order_state: "READY_TO_SHIP",
+    // response_optional_fields: "order_status",
     shop_id,
 };
 const options = {
