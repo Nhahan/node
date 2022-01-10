@@ -35,7 +35,7 @@ axios
         console.log("response", response.data);
     })
     .catch((error) => {
-        console.error("generate error", error.response);
+        console.error("generate error", error.response.data);
     });
 
 // response {
