@@ -2,7 +2,7 @@ const axios = require("axios").default;
 const { createHmac } = require("crypto");
 
 const host = "https://partner.test-stable.shopeemobile.com";
-const path = "/api/v2/order/get_order_list";
+const path = "/api/v2/order/get_order_detail";
 
 const timestamp = Math.round(Date.now() / 1000);
 const partner_id = 1000639;
@@ -21,13 +21,7 @@ const params = {
     sign,
 };
 const data = {
-    time_range_field: "create_time",
-    time_from: 1641786546,
-    time_to: 1641786546,
-    // page_size: 20,
-    // order_state: "READY_TO_SHIP",
-    // response_optional_fields: "order_status",
-    shop_id,
+    oder_sn_list: ["220110DYQX6AH5"],
 };
 const options = {
     method: "GET",
