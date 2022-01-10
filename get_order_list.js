@@ -28,12 +28,11 @@ const params = {
     // response_optional_fields: "order_status",
     shop_id,
 };
-// const data = {};
+
 const options = {
     method: "GET",
     url: `${host}${path}`,
     params,
-    // data,
 };
 axios
     .request(options)
