@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
     res.render("index", params);
 });
 app.get("/about", (req, res) => {
-    res.render("About", params);
+    res.render("about", params);
 });
 app.post("/test", (req, res) => {
     console.log("headers", req.headers);
