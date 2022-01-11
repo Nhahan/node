@@ -60,8 +60,7 @@ app.get("/about", (req, res) => {
     res.render("about", params);
 });
 app.post("/test", (req, res) => {
-    console.log("status", req.status);
-    console.log("headres", req.headers);
+    console.log("headers", req.headers);
     console.log("body", req.body);
     res.send("");
 });
