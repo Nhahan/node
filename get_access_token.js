@@ -4,7 +4,6 @@ const { createHmac } = require("crypto");
 const host = "https://partner.test-stable.shopeemobile.com";
 const path = "/api/v2/auth/token/get";
 const timestamp = Math.round(Date.now() / 1000);
-// const timestamp = 1641527426;
 const code = "646b707244466b6e44684f7052425879";
 const partner_id = 1000639;
 const partner_key =
