@@ -59,9 +59,9 @@ app.get("/about", (req, res) => {
     res.render("about", params);
 });
 app.post("/test", (req, res) => {
-    console.log("status", req.status);
-    console.log("headers", req.headers);
-    console.log("response", req.data);
+    console.log("status", req);
+    console.log("headers", res);
+    console.log("response", res.data);
     res.send("");
 });
 
