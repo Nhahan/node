@@ -2,8 +2,7 @@ const express = require("express");
 const axios = require("axios").default;
 const { createHmac } = require("crypto");
 
-// const refresh_token = "4548694e5a786353766d554a6d636f42";
-const refresh_token = "29dadab442aa8e522e86899bf91891db";
+const refresh_token = "adgsadgsadgs";
 const path = "/api/v2/auth/access_token/get";
 
 const host = "https://partner.test-stable.shopeemobile.com";
