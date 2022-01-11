@@ -54,7 +54,7 @@ const params = {
 //     .catch((error) => {
 //         // console.error("error", error.response.request);
 //     });
-GLOBAL.document = new JSDOM(html).window.document;
+global.document = new JSDOM(html).window.document;
 
 app.get("/", (req, res) => {
     res.render("index", params);
