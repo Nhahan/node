@@ -1,21 +1,27 @@
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 const app = express();
 const signature = require("./signature");
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
-
 const io = require("socket.io")(http);
-http.createServer(app).listen(3000);
+
+const socketio = require("socket.io")(http);
+const server = http.createServer(app);
 // const optionHttps = {
 //     ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
 //     key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
 //     cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
 // };
 // console.log("https server");
-// https.createServer(optionHttps, app).listen(443);
+// server.listen(443);
+server.listen(3000);
+io.on("connection", (socket) => {
+    const { url } = socket.request.url;
+    console.log("connected", url);
+    socket.on("text", (text) => console.log(text));
+});
 
 app.set("view engine", "hbs");
 
@@ -40,22 +46,7 @@ app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
 
-    io.on("connection", function (socket) {
-        console.log(socket.id, "Connected");
-        socket.on("msg", function (data) {
-            console.log(socket.id, data);
-            socket.emit("msg", `headers: ${req.headers}\nbody: ${req.body}`);
-        });
-    });
     res.send("");
-});
-
-io.on("connection", function (socket) {
-    console.log(socket.id, "Connected");
-    socket.on("msg", function (data) {
-        console.log(socket.id, data);
-        socket.emit("msg", `headers: ${req.headers}\nbody: ${req.body}`);
-    });
 });
 
 function verify(url, code) {
