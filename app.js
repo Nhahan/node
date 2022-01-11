@@ -7,13 +7,13 @@ const signature = require("./signature");
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
-// http.createServer(app).listen(3000);
-const optionHttps = {
-    ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
-    key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
-};
-https.createServer(optionHttps, app).listen(443);
+http.createServer(app).listen(3000);
+// const optionHttps = {
+//     ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
+//     key: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/privkey.pem"),
+//     cert: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/cert.pem"),
+// };
+// https.createServer(optionHttps, app).listen(443);
 
 app.set("view engine", "hbs");
 
@@ -59,9 +59,9 @@ app.get("/about", (req, res) => {
     res.render("about", params);
 });
 app.post("/test", (req, res) => {
-    console.log("status", response.status);
-    console.log("headers", response.headers);
-    console.log("response", response.data);
+    console.log("status", req.status);
+    console.log("headers", req.headers);
+    console.log("response", req.data);
     res.send("");
 });
 
