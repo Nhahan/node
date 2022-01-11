@@ -3,11 +3,11 @@ const cors = require("cors");
 const axios = require("axios");
 const app = express();
 const signature = require("./signature");
-var io = require("socket.io")(http);
-
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
+
+const io = require("socket.io")(http);
 http.createServer(app).listen(3000);
 // const optionHttps = {
 //     ca: fs.readFileSync("/etc/letsencrypt/live/suml.xyz/fullchain.pem"),
@@ -30,8 +30,6 @@ const params = {
     timestamp: signature.timestamp,
 };
 
-setStartingPlayer(serverUser, localHost);
-
 app.get("/", (req, res) => {
     res.render("index", params);
 });
@@ -50,6 +48,14 @@ app.post("/test", (req, res) => {
         });
     });
     res.send("");
+});
+
+io.on("connection", function (socket) {
+    console.log(socket.id, "Connected");
+    socket.on("msg", function (data) {
+        console.log(socket.id, data);
+        socket.emit("msg", `headers: ${req.headers}\nbody: ${req.body}`);
+    });
 });
 
 function verify(url, code) {

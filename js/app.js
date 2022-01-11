@@ -3,6 +3,7 @@ const socket = io.connect("http://localhost:3000");
 
 socket.on("msg", function (data) {
     $("#chatContent").append(`${data}<br>`);
+    console.log(data);
 });
 
 $("#myChat").on("keyup", function () {
