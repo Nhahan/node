@@ -5,7 +5,7 @@ const host = "https://partner.test-stable.shopeemobile.com";
 const path = "/api/v2/auth/token/get";
 const timestamp = Math.round(Date.now() / 1000);
 // const timestamp = 1641527426;
-const code = "4e716b5572577a6c6d69737552686775";
+const code = "646b707244466b6e44684f7052425879";
 const partner_id = 1000639;
 const partner_key =
     "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";

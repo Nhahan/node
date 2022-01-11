@@ -9,13 +9,12 @@ const timestamp = Math.round(Date.now() / 1000);
 const partner_id = 1000639;
 const partner_key =
     "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";
-const access_token = "19785fa07b532bac6b7486e1bb37faaf";
+const access_token = "6b555742434f724f4164555377637959";
 const shop_id = 37698;
 const baseString = `${partner_id}${path}${timestamp}${access_token}${shop_id}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
 
 const params = {
-    language: "id",
     timestamp,
     partner_id,
     access_token,
