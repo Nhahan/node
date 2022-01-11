@@ -57,23 +57,19 @@ app.get("/", (req, res) => {
     res.render("index", params);
 });
 app.get("/about", (req, res) => {
-    res.render("about", params);
+    res.render("About", params);
 });
 app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
-    document.h2.removeChild(document.body);
-    document.h2.appendChild(
-        document.createElement(`
-        <p>
-        <span>headers: </span> req.headers        
-        </p>
-        <p>
-        <span>body: </span> req.body
-        </p>
-    `),
-    );
-    res.send("");
+
+    const requestForm = doument.querySelector("request-form");
+    requestForm.remove(requestParagraph.childNodes);
+    const requestParagraph = document.createElement("p");
+    requestParagraph.innerText =
+        "headers " + req.headers + "\nbody " + req.body;
+    requestForm.appendChild(requestParagraph);
+    requestForm.res.send("");
 });
 
 module.exports = app;
