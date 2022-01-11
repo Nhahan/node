@@ -63,7 +63,14 @@ app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
 
-    requestForm.res.send("");
+    res.send("");
 });
+
+function verify(url) {
+    const baseString = `www.suml.xyz/test{"shop_id":${shop_id},"code":${partner_id}${path}${timestamp}${access_token}`;
+    const sign = createHmac("sha256", partner_key)
+        .update(baseString)
+        .digest("hex");
+}
 
 module.exports = app;
