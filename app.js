@@ -63,7 +63,7 @@ app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
 
-    const requestForm = doument.querySelector("request-form");
+    const requestForm = document.querySelector("request-form");
     requestForm.remove(requestParagraph.childNodes);
     const requestParagraph = document.createElement("p");
     requestParagraph.innerText =
