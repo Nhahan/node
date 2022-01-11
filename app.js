@@ -3,6 +3,8 @@ const cors = require("cors");
 const axios = require("axios");
 const app = express();
 const signature = require("./signature");
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 const fs = require("fs");
 const http = require("http");
@@ -52,6 +54,7 @@ const params = {
 //     .catch((error) => {
 //         // console.error("error", error.response.request);
 //     });
+GLOBAL.document = new JSDOM(html).window.document;
 
 app.get("/", (req, res) => {
     res.render("index", params);
