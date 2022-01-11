@@ -3,6 +3,7 @@ const cors = require("cors");
 const axios = require("axios");
 const app = express();
 const signature = require("./signature");
+var io = require("socket.io")(http);
 
 const fs = require("fs");
 const http = require("http");
@@ -29,29 +30,7 @@ const params = {
     timestamp: signature.timestamp,
 };
 
-// const data = {
-//     code: signature.code,
-//     partner_id: signature.partner_id,
-//     shop_id: 37698,
-// };
-
-// const path = "/api/v2/auth/token/get";
-
-// const options = {
-//     method: "POST",
-//     url: `${signature.host}${path}`,
-//     params,
-//     data,
-// };
-
-// axios
-//     .request(options)
-//     .then((response) => {
-//         console.log("response", response);
-//     })
-//     .catch((error) => {
-//         // console.error("error", error.response.request);
-//     });
+setStartingPlayer(serverUser, localHost);
 
 app.get("/", (req, res) => {
     res.render("index", params);
@@ -63,6 +42,13 @@ app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
 
+    io.on("connection", function (socket) {
+        console.log(socket.id, "Connected");
+        socket.on("msg", function (data) {
+            console.log(socket.id, data);
+            socket.emit("msg", `headers: ${req.headers}\nbody: ${req.body}`);
+        });
+    });
     res.send("");
 });
 
