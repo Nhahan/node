@@ -40,6 +40,7 @@ const data = {
         },
     ],
     attribute_list: [
+        // This field is optional(expect Indonesia) depending on the specific attribute under different categories
         {
             attribute_id: 100010,
             attribute_value_list: [

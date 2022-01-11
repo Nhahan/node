@@ -62,7 +62,6 @@ app.get("/about", (req, res) => {
 app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
-    console.log("req", req);
 
     res.send("");
 });
