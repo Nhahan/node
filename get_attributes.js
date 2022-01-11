@@ -35,9 +35,10 @@ const options = {
 axios
     .request(options)
     .then((response) => {
-        console.log("get_order_list");
+        console.log("status", response.status);
+        console.log("headers", response.headers);
         console.log("response", response.data);
     })
     .catch((error) => {
-        console.error("get_order_list error", error.response.data);
+        console.error("error", error.response.data);
     });

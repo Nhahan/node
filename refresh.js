@@ -20,23 +20,27 @@ const params = {
     sign,
     timestamp,
 };
+
 const data = {
     refresh_token,
     partner_id,
     shop_id,
 };
+
 const options = {
     method: "POST",
     url: `${host}${path}`,
     params,
     data,
 };
+
 axios
     .request(options)
     .then((response) => {
-        console.log("RefreshAccessToken");
+        console.log("status", response.status);
+        console.log("headers", response.headers);
         console.log("response", response.data);
     })
     .catch((error) => {
-        console.error("refresh error", error.response.data);
+        console.error("error", error.response.data);
     });

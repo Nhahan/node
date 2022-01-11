@@ -9,7 +9,7 @@ const timestamp = Math.round(Date.now() / 1000);
 const partner_id = 1000639;
 const partner_key =
     "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";
-const access_token = "4c6467554c6d796f7a4e69466f766a6f";
+const access_token = "487861695a634b676141634f4c4b5148";
 const shop_id = 37698;
 const baseString = `${partner_id}${path}${timestamp}${access_token}${shop_id}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
@@ -23,7 +23,7 @@ const params = {
 };
 
 const data = {
-    original_price: 555.5, // float
+    original_price: 123.3, // float
     description: "This item is good!",
     weight: 1, // float
     item_name: "Good Item",
@@ -32,11 +32,11 @@ const data = {
     normal_stock: 33,
     logistic_info: [
         {
-            size_id: 0,
-            shipping_fee: 23.12,
+            // size_id: 0,
+            // shipping_fee: 1.1,
             enabled: true,
-            logistic_id: "J&T",
-            is_free: false,
+            logistic_id: 80014,
+            // is_free: false,
         },
     ],
     attribute_list: [
@@ -44,16 +44,16 @@ const data = {
             attribute_id: 100010,
             attribute_value_list: [
                 {
-                    value_id: 32142,
-                    original_value_name: "Brand",
-                    // value_unit: "5kg",
+                    value_id: 123,
+                    original_value_name: "1 Month",
+                    // value_unit: " kg",
                 },
             ],
         },
     ],
     category_id: 100143,
     image: {
-        image_id_list: ["asd.com"],
+        image_id_list: ["2"],
     },
     // pre_order: {
     //     "is_pre_order": false,
@@ -98,6 +98,8 @@ const options = {
 axios
     .request(options)
     .then((response) => {
+        console.log("status", response.status);
+        console.log("headers", response.headers);
         console.log("response", response.data);
     })
     .catch((error) => {
