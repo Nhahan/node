@@ -62,6 +62,17 @@ app.get("/about", (req, res) => {
 app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
+    document.h2.removeChild(document.body);
+    document.h2.appendChild(
+        document.createElement(`
+        <p>
+        <span>headers: </span> req.headers        
+        </p>
+        <p>
+        <span>body: </span> req.body
+        </p>
+    `),
+    );
     res.send("");
 });
 
