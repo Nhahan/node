@@ -62,12 +62,13 @@ app.get("/about", (req, res) => {
 app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
+    console.log("req", req);
 
     res.send("");
 });
 
-function verify(url) {
-    const baseString = `www.suml.xyz/test{"shop_id":${shop_id},"code":${partner_id}${path}${timestamp}${access_token}`;
+function verify(url, code) {
+    const baseString = `www.suml.xyz/test{"shop_id":${shop_id},"code":${code},"succeess"${partner_id}${path}${timestamp}${access_token}`;
     const sign = createHmac("sha256", partner_key)
         .update(baseString)
         .digest("hex");
