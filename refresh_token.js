@@ -2,7 +2,7 @@ const express = require("express");
 const axios = require("axios").default;
 const { createHmac } = require("crypto");
 
-const refresh_token = "adgsadgsadgs";
+const refresh_token = "1fffebe30cf8b4519ac22c9bb5770ed5";
 const path = "/api/v2/auth/access_token/get";
 
 const host = "https://partner.test-stable.shopeemobile.com";
@@ -12,7 +12,7 @@ const partner_key =
     "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";
 const baseString = `${partner_id}${path}${timestamp}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
-const shop_id = 37872;
+const shop_id = 37698;
 
 const params = {
     partner_id,
