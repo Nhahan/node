@@ -3,8 +3,6 @@ const cors = require("cors");
 const axios = require("axios");
 const app = express();
 const signature = require("./signature");
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 
 const fs = require("fs");
 const http = require("http");
@@ -54,7 +52,6 @@ const params = {
 //     .catch((error) => {
 //         // console.error("error", error.response.request);
 //     });
-global.document = new JSDOM(html).window.document;
 
 app.get("/", (req, res) => {
     res.render("index", params);
@@ -66,12 +63,6 @@ app.post("/test", (req, res) => {
     console.log("headers", req.headers);
     console.log("body", req.body);
 
-    const requestForm = document.querySelector("request-form");
-    requestForm.remove(requestParagraph.childNodes);
-    const requestParagraph = document.createElement("p");
-    requestParagraph.innerText =
-        "headers " + req.headers + "\nbody " + req.body;
-    requestForm.appendChild(requestParagraph);
     requestForm.res.send("");
 });
 
