@@ -9,7 +9,7 @@ const timestamp = Math.round(Date.now() / 1000);
 const partner_id = 1000639;
 const partner_key =
     "90e0bd35c8a63d24052d2acb14ee4ae98e2f7a76e7428c3fa6e9da941960cac0";
-const access_token = "487861695a634b676141634f4c4b5148";
+const access_token = "4975727363526d4e4f6b6d5152444b62";
 const shop_id = 37698;
 const baseString = `${partner_id}${path}${timestamp}${access_token}${shop_id}`;
 const sign = createHmac("sha256", partner_key).update(baseString).digest("hex");
@@ -45,9 +45,9 @@ const data = {
             attribute_id: 100010,
             attribute_value_list: [
                 {
-                    value_id: 123,
+                    value_id: 563,
                     original_value_name: "1 Month",
-                    // value_unit: " kg",
+                    display_value_name: "1 Bulan",
                 },
             ],
         },
