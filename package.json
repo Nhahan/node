@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev --inspect --watch -- ./app.ts"
+    "start:dev": "ts-node-dev --inspect --watch -- ./src/infrastructure//app.ts"
   },
   "repository": {
     "type": "git",
